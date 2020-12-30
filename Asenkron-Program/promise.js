@@ -28,9 +28,9 @@ const newTodo = todo => {
     setTimeout(() => {
       todos.push(todo)
       if (true) {
-        resolve()
+        resolve(todo)
       } else {
-        reject()
+        reject('Hata var...')
       }
     }, 2000)
   })
@@ -46,8 +46,10 @@ newTodo({
   .then(response => {
     // eger resolve() calisirsa
     todoList()
+    console.log(response)
   })
   .catch(err => {
     // eger reject() calisirsa
-    console.error('Hata var...')
+    console.error(err)
   })
+todoList()
