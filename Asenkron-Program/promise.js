@@ -40,9 +40,6 @@ newTodo({
   title: 'Todo 5',
   description: 'Write codes'
 })
-  .finally(() => {
-    alert('Promise ready..')
-  })
   .then(response => {
     // eger resolve() calisirsa
     todoList()
