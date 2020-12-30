@@ -27,7 +27,7 @@ const newTodo = todo => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       todos.push(todo)
-      if (false) {
+      if (true) {
         resolve()
       } else {
         reject()
@@ -40,6 +40,9 @@ newTodo({
   title: 'Todo 5',
   description: 'Write codes'
 })
+  .finally(() => {
+    alert('Promise ready..')
+  })
   .then(response => {
     // eger resolve() calisirsa
     todoList()
