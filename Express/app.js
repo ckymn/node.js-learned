@@ -10,9 +10,8 @@ app.use(mw.logger)
 app.get('/', (req, res) => {
   res.send('Hello World..')
 })
-/**
- * @param {express.static}. html veya css dosyalarini cekmemizi saglar
- */
+
+// {express.static}. html veya css dosyalarini cekmemizi saglar
 app.use('/static', express.static(__dirname))
 
 app.listen(PORT, () => {
