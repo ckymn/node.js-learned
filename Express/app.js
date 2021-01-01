@@ -1,15 +1,10 @@
 const express = require('express')
+const mw = require('./middleware')
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000
 
-/**
- * @param {Middleware}. Herzaman en basta tanimlanmalidir. 
- *  http request'ler calismadan hemen once calistirilir.
-*/ 
-app.use('/', (req, res, next) => {
-  console.log('Middleware calisti')
-  next()
-})
+//middleware
+app.use(mw.logger)
 
 // http request
 app.get('/', (req, res) => {
@@ -20,7 +15,6 @@ app.get('/', (req, res) => {
  */
 app.use('/static', express.static(__dirname))
 
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`)
 })
