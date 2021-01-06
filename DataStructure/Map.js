@@ -1,5 +1,5 @@
 /**
- * {map}:
+ * {Map()}:
  * Object gibi ama Map her turden tusa izin veriyor
  * bir Map() constructor'i key-value olarak iceriye eklenir
  * br Map() constructor'i es6 ile gelen for...of ile [key-value] kontrol edebilirsin
@@ -10,7 +10,8 @@
  * *new map.delete(key): degeri key ile kaldirir
  * *new map.clear(): herseyi kaldirir
  * *new map.size: gecerli oge sayisini doner
- * *entries(obj): duz bir nesneden bir Map nesnesi(iterator) olusturmak istiyoruz
+ * *entries(obj): duz bir nesneden bir Map nesnesi(iterator) [key,value] olusturmak istiyoruz
+ * *formEntries([obj]): Object.entries() tam tersi {key,value} olusturmak
  * *keys(): iterator object'in key degerlerini donderiyor
  * *values(): iterator object'in vlue degerlerini donderiyor\
  * *[@@iterator](): key degerleri [1,'2',{}] olsa dahi [Symbol.iterator]() diyerekten [key-value] doner

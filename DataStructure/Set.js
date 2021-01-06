@@ -84,6 +84,7 @@ console.log(unique(values))
 
 
 //==========================================================================
+// ANAGRAM DUZENLEME ISLEMLERI 
 let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
 function aclean(arr){
@@ -98,3 +99,16 @@ function aclean(arr){
 }
 
 console.log(aclean(arr))
+
+//============================================================================
+let map = new Map();
+
+map.set("name", "John");
+
+let keys = Array.from(map.keys());
+// let keys = [...map.keys()] bunuda kullanabiliriz
+
+
+keys.push("more");
+
+console.log(keys);

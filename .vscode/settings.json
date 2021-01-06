@@ -1,0 +1,6 @@
+{
+    "javascript.format.semicolons": "insert",
+    "C_Cpp.vcFormat.space.insertAfterSemicolon": true,
+    "C_Cpp.vcFormat.space.removeBeforeSemicolon": false,
+    "css.completion.completePropertyWithSemicolon": false
+}
