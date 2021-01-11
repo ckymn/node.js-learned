@@ -9,4 +9,8 @@ router.get('/', function(req, res, next) {
   // res.redirect("http://github.com/ckymn");
 });
 
+router.post("/create", (req,res,next) =>{
+	res.send("Kayit icin kullanilcak route alani ....")
+})
+
 module.exports = router;

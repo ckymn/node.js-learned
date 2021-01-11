@@ -12,6 +12,7 @@
     "express-request-id": "^1.4.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "mongodb": "^3.6.3",
     "morgan": "~1.9.1"
   }
 }
