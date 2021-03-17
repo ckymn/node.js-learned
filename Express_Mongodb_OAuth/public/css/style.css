@@ -1,0 +1,23 @@
+p {
+    margin: 10px 0 im !important;
+}
+
+.login-container {
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.main {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.header , footer{
+    background-color: red;
+    color: white;
+    padding: 20px;
+}   
+
