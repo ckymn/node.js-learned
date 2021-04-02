@@ -8,18 +8,15 @@
     <section>
         <h1>Yazilar</h1>
         <ul>
-            <li>
-                <a href="#">Blog 1</a>
-                <p>Lorem, ipsum dolor.</p>
-            </li>
-            <li>
-                <a href="#">Blog 2</a>
-                <p>Lorem, ipsum dolor.</p>
-            </li>
-            <li>
-                <a href="#">Blog 3</a>
-                <p>Lorem, ipsum dolor.</p>
-            </li>
+            <% blogs.forEach(blog => { %> 
+                <br>
+                    <a href="#"><%=blog.title%></a>
+                    <p><%=blog.short%></p>
+                    <p><%=blog.long%></p>
+                    <time><%=blog.createdAt%> </time>
+                    <time><%=blog.updatedAt%> </time>
+                </li>
+            <%  })%> 
         </ul>
     </section>
 </body>
