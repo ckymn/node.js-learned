@@ -8,13 +8,13 @@
     <section>
         <h1>Yazilar</h1>
         <ul>
-            <% blogs.forEach(blog => { %> 
+            <% blogs.map((el,i,arr) => { %> 
                 <br>
-                    <a href="#"><%=blog.title%></a>
-                    <p><%=blog.short%></p>
-                    <p><%=blog.long%></p>
-                    <time><%=blog.createdAt%> </time>
-                    <time><%=blog.updatedAt%> </time>
+                    <a href="/blog/<%=el._id%>"><%=el.title%></a>
+                    <p><%=el.short%></p>
+                    <p><%=el.long%></p>
+                    <time><%=el.createdAt%> </time>
+                    <time><%=el.updatedAt%> </time>
                 </li>
             <%  })%> 
         </ul>

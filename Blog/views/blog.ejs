@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%-include("./partials/header.ejs") %>
+  </head>
+  <body>
+    <%-include("./partials/nav.ejs") %>
+    <section>
+      <h1><%=blogs.title%> </h1>
+      <p>
+        <%=blogs.short %> </br>
+        <%=blogs.long %> 
+      </p>
+    </section>
+  </body>
+</html>

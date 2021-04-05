@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("./partials/header.ejs") %> 
+<body>
+    <%-include("./partials/nav.ejs") %>
+    <section>
+        <form action="/admin/add" method="post">
+            <input type="text" name="title" placeholder="Baslik" required>
+            <input type="text" name="short" placeholder="Kisa Aciklama" required>
+            <input type="text" name="long" placeholder="Uzun Aciklama" required>
+            <input type="submit" value="Kaydet">
+        </form>
+    </section> 
+</body>
+</html>
