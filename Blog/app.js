@@ -1,6 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
-const path = require("path");
+const path = require("path"); 
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
 const Blog = require("./models/blogs");
@@ -27,7 +27,7 @@ app.get("/", async (req, res) => {
         let result = await Blog.find().sort({createdAt : -1});
         res.render("index", { title: "Home Page" , blogs : result});
     } catch (error) {
-        
+        console.error(error);
     }
 });
 
