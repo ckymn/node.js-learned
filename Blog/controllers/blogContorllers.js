@@ -17,13 +17,7 @@ const blog_about = (req, res) => {
     res.render("about", { title: "About Page" });
   }
 
-const blog_login =  (req, res) => {
-    res.render("login", { title: "Login Page" });
-  }
-
-
 module.exports = {
     blog_single,
     blog_about,
-    blog_login
 }
