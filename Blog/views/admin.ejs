@@ -6,32 +6,36 @@
 <body>
     <%-include("./partials/nav.ejs") %> 
     <section>
-        <a href="/admin/add">Yazi Ekle</a>
-        <h1>Yazilar</h1>
+        <h1>Yazilar <small><a href="/admin/add">Yazi Ekle</a></small></h1>
         <ul>
             <% blogs.map((el,i,arr) => { %> 
                 <br>
                     <p><%=el.title%></p>
-                    <a class="del" data-doc="<%=el._id%> ">Yazi Sil</a>
+                    <a class="del" style="color: red;" data-id="<%=el._id%> ">Yazi Sil</a>
                 </li>
             <%  })%> 
         </ul>
     </section>
     <script>
-        const del = document.guerySelector("a.del");
+        // girilen son a etiketini almasin diye All yaptik ve geriye Nodelist donuyor
+        const del = document.querySelectorAll("a.del");
 
-        del.addEventListener("click", (e)=>{
-            const endPoint = `/admin/delete/${dataset.doc}`
-
-            fetch(endPoint, {
-                method: "DELETE",
-            }).then((result) => {
-                result.json()
-            }).then((data) => {
-                window.location.href = data.link
-            }).catch((err) => {
-                
-            });
+        const delLinks =[].slice.call(del);
+        console.log(delLinks)
+        delLinks.map((item) => {
+            item.addEventListener('click', (e)=>{
+                const endPoint = `/admin/delete/${item.dataset.id}`
+                console.log(window.location)  
+                fetch(endPoint, {
+                    method: "DELETE",
+                }).then((result) => { //burda delete methodunu yakaliyoruz
+                    result.json()
+                }).then((data) => {
+                    window.location.href = data.link
+                }).catch((err) => {
+                    console.log(err);      
+                });
+            })
         })
     </script>
 </body>
