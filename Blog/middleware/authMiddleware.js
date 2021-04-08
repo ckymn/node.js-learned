@@ -1,8 +1,10 @@
 const jwt = require("jsonwebtoken");
 const requireAuth = (req,res,next) =>{
-    const token = req.cookies.jwt;
+    // bu cookies'ta tokens kontrolunu cookie-parser yapiyor.
+    const token = req.cookies.tokens;
 
     if(token){
+        // token cozumleme
         jwt.verify(token, "muhammet blog",(err,decodedToken) =>{
             if(err){
                 console.error(err);
@@ -17,4 +19,4 @@ const requireAuth = (req,res,next) =>{
     }
 }
 
-module.exports = { requireAuth};
+module.exports = { requireAuth };

@@ -1,56 +1,56 @@
 const User = require("../models/users");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
-//token 
-const maxAge = 60*60*24;
+
+//token
+const maxAge = 60 * 60 ;
 const createToken = (id) => {
-    return jwt.sign({id} , "muhammet blog", {expiresIn: maxAge})
-}
+  return jwt.sign({ id }, "muhammet blog", { expiresIn: maxAge });
+};
 
 const login_get = (req, res) => {
   res.render("login", { title: "Login" });
 };
 
 const login_post = async (req, res) => {
-  const { username, password} = req.body;
-//   let addedUser = await User.findOne(username);
-  
-   /* if(addedUser){
-    let findUser = bcrypt.compare(password, addedUser.password) 
-    if(findUser)
-        res.redirect("/");
-    throw Error("Parola Hatali...")
-    }
-    res.redirect("/signout"); */
+  const { username, password } = req.body;
 
-    try {
-        const user = await User.login(username, password);
-        // token : dogrulanmis kullanici oldugu bilinsin diye
-        const token = createToken(user._id);
-        //cookies : sitede dolasmak icin
-        res.cookie("jwt",token,{
-            httpOnly: true,
-            maxAge : maxAge*1000 // ms cinsinden calisir 
-        })
-        res.redirect("/admin");
-    } catch (error) {
-        console.error(error);
+  const user = await User.findOne({ username });
+  if (user) {
+    const auth = await bcrypt.compare(password, user.password);
+    if (auth) {
+      // token : dogrulanmis kullanici oldugu bilinsin diye
+      const token = createToken(user._id);
+      //cookies : sitede dolasmak icin
+      res.cookie("tokens", token, {
+        httpOnly: true,
+        maxAge: maxAge * 1000, // ms cinsinden calisir
+      });
+      res.redirect("/admin");
+    } else {
+      throw Error("parola hatali");
     }
-
-    
+  } else {
+    throw Error("username hatali");
+  }
 };
+
 const signup_get = (req, res) => {
   res.render("signup", { title: "Signup" });
 };
+
 const signup_post = async (req, res) => {
   const { body, params } = req;
   let newUser = new User(body);
   await newUser.save();
   res.redirect("/login");
 };
+
+// cookie kaldirma islemi
 const logout_get = (req, res) => {
-  res.cookie("jwt","",{maxAge:1});
-  res.redirect("/login")
+  res.cookie("tokens", "", { maxAge: 1 });
+  res.redirect("/login");
 };
 
 module.exports = {
