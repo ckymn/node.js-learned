@@ -5,7 +5,7 @@ const requireAuth = (req, res, next) => {
 
   if (token) {
     // token cozumleme
-    jwt.verify(token, "muhammet blog", (err, decodedToken) => {
+    jwt.verify(token, process.env.jwtkeys, (err, decodedToken) => {
       if (err) {
         console.error("token verify hatasi :", err);
         res.redirect("/login");

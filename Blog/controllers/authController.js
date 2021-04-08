@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 //token
 const maxAge = 60 * 60 ;
 const createToken = (id) => {
-  return jwt.sign({ id }, "muhammet blog", { expiresIn: maxAge });
+  return jwt.sign({ id }, process.env.jwtkeys, { expiresIn: maxAge });
 };
 
 const login_get = (req, res) => {
@@ -20,7 +20,7 @@ const login_post = async (req, res) => {
   if (user) {
     const auth = await bcrypt.compare(password, user.password);
     if (auth) {
-      // token : dogrulanmis kullanici oldugu bilinsin diye
+      // token : isteklerin ayni kisiden gidip gitmedigini dogrular.
       const token = createToken(user._id);
       //cookies : sitede dolasmak icin
       res.cookie("tokens", token, {
@@ -49,7 +49,7 @@ const signup_post = async (req, res) => {
 
 // cookie kaldirma islemi
 const logout_get = (req, res) => {
-  res.cookie("tokens", "", { maxAge: 1 });
+  res.clearCookie("tokens")
   res.redirect("/login");
 };
 
