@@ -5,8 +5,8 @@
 </head>
 <body>
     <%-include("./partials/nav.ejs") %> 
-    <section>
-        <h1>Yazilar <small><a href="/admin/add">Yazi Ekle</a></small></h1>
+    <section >
+        <h1>ALL PROJECTS <small><a href="/admin/add">Proje Ekle</a></small></h1>
         <ul>
             <% blogs.map((el,i,arr) => { %> 
                 <br>
@@ -19,6 +19,7 @@
     <script>
         // girilen son a etiketini almasin diye All yaptik ve geriye Nodelist donuyor
         const del = document.querySelectorAll("a.del");
+        console.log(del);
 
         const delLinks =[].slice.call(del);
         console.log(delLinks)

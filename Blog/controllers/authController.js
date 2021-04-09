@@ -2,7 +2,6 @@ const User = require("../models/users");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-
 //token
 const maxAge = 60 * 60 ;
 const createToken = (id) => {
@@ -10,7 +9,9 @@ const createToken = (id) => {
 };
 
 const login_get = (req, res) => {
-  res.render("login", { title: "Login" });
+  res.render("login", { 
+    title: "Login"
+  });
 };
 
 const login_post = async (req, res) => {

@@ -7,6 +7,8 @@ body {
     flex-direction: row;
     justify-content: space-around;
     border-bottom: 3px solid #000;
+    border-style: dotted;
+    border-color: blueviolet;
 }
 
 nav ul {
@@ -34,4 +36,18 @@ form {
 form input {
     margin-top: 10px;
     padding: 5px 10px;
+}
+
+a{
+    color: black;
+}
+
+/*yazilari secme isleminde olusacak renk */
+a::selection{
+    background: red;
+}
+
+::selection{
+    color: black;
+    background: yellow;
 }

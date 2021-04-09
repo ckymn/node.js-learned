@@ -8,7 +8,7 @@ const dotenv = require("dotenv");
 const admin = require("./routers/adminRouter")
 const blog = require("./routers/blogRouter")
 const authRoute = require("./routers/authRouter")
-const {requireAuth} = require("./middleware/authMiddleware");
+const {requireAuth,checkUser} = require("./middleware/authMiddleware");
 
 
 const app = express();
@@ -28,6 +28,8 @@ app.use(cookieParser());
 //body-parser
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
+//all page run
+app.get("*",checkUser);
 // router
 app.use("/",authRoute);
 app.use(requireAuth,admin);
