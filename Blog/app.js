@@ -9,8 +9,6 @@ const admin = require("./routers/adminRouter")
 const blog = require("./routers/blogRouter")
 const authRoute = require("./routers/authRouter")
 const {requireAuth,checkUser} = require("./middleware/authMiddleware");
-
-
 const app = express();
 
 //configure
